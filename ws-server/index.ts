@@ -1,8 +1,8 @@
 import { WebSocketServer } from 'ws';
-import { getPosition, moveUp, moveDown, moveLeft, moveRight } from './navigation';
-import { reqHandler } from './requestHandles';
-import { drawSquare, drawRectangle, drawCircle } from './figures';
-import { getScreen } from './screen';
+import { getPosition, moveUp, moveDown, moveLeft, moveRight } from './src/navigation';
+import { reqHandler } from './src/requestHandles';
+import { drawSquare, drawRectangle, drawCircle } from './src/figures';
+import { getScreen } from './src/screen';
 
 const wss = new WebSocketServer({ port: 8080 });
 
