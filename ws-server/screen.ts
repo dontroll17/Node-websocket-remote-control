@@ -7,5 +7,6 @@ export const getScreen = async () => {
     const pic = new Jimp({data: img, width: 200, height: 200})
     const getBase = await pic.getBase64Async(pic.getMIME());
     const base64str = getBase.slice(22);
+    console.log('get screen');
     return base64str;
 }

@@ -9,11 +9,12 @@ const wss = new WebSocketServer({ port: 8080 });
 wss.on('connection', ws => {
     console.log('Got connect');
     ws.on('message', async data => {
-        console.log(data.toString());
         let [command, option, option2] = reqHandler(data);
+        console.log(`received command: ${command}`);
         switch(command) {
             case 'mouse_position':
                 let {x, y} = getPosition();
+                console.log('get mouse position');
                 ws.send(`mouse_position ${x},${y}`);
                 break;
 

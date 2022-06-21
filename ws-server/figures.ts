@@ -10,6 +10,7 @@ export const drawSquare = (param: string) => {
     moveLeft(paramToNumber);
     moveUp(paramToNumber);
     robot.mouseToggle('up');
+    console.log('draw square');
 }
 
 export const drawRectangle = (param1: string, param2: string) => {
@@ -22,6 +23,7 @@ export const drawRectangle = (param1: string, param2: string) => {
     moveLeft(paramToNumber1);
     moveUp(paramToNumber2);
     robot.mouseToggle('up');
+    console.log('draw rectangle');
 }
 
 export const drawCircle = (radius: string) => {
@@ -34,8 +36,9 @@ export const drawCircle = (radius: string) => {
         const x1 = x + (rad * Math.cos(i));
         const y1 = y + (rad * Math.sin(i));
         
-        robot.moveMouseSmooth(x1, y1);
+        robot.moveMouse(x1, y1);
     }
     robot.mouseToggle('up');
     robot.moveMouse(x, y);
+    console.log('draw circle');
 }
