@@ -37,4 +37,5 @@ export const drawCircle = (radius: string) => {
         robot.moveMouseSmooth(x1, y1);
     }
     robot.mouseToggle('up');
+    robot.moveMouse(x, y);
 }

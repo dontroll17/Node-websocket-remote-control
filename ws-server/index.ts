@@ -45,3 +45,5 @@ wss.on('connection', ws => {
         }
     });
 });
+
+console.log('ws://localhost:8080');
