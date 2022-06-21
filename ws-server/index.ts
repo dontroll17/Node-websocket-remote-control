@@ -15,7 +15,7 @@ wss.on('connection', ws => {
             case 'mouse_position':
                 let {x, y} = getPosition();
                 console.log('get mouse position');
-                ws.send(`mouse_position ${x},${y}`);
+                ws.send(`mouse_position ${x},${y}\0`);
                 break;
 
             case 'mouse_up':
@@ -48,7 +48,7 @@ wss.on('connection', ws => {
 
             case 'prnt_scrn':
                 let img = await getScreen();
-                ws.send(`prnt_scrn ${img}`);
+                ws.send(`prnt_scrn ${img}\0`);
                 break;
         }
     });

@@ -1,6 +1,6 @@
 # Websocket remote control
 
-1. Clone repo
+1. Clone repo - https://github.com/dontroll17/Node-websocket-remote-control.git
 2. cd front-server
 3. npm install
 4. npm run start
