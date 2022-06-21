@@ -2,12 +2,14 @@ import { WebSocketServer } from 'ws';
 import { getPosition, moveUp, moveDown, moveLeft, moveRight } from './navigation';
 import { reqHandler } from './requestHandles';
 import { drawSquare, drawRectangle, drawCircle } from './figures';
+import { getScreen } from './screen';
 
-const wss = new WebSocketServer({ port: 8080});
+const wss = new WebSocketServer({ port: 8080 });
 
 wss.on('connection', ws => {
     console.log('Got connect');
-    ws.on('message', data => {
+    ws.on('message', async data => {
+        console.log(data.toString());
         let [command, option, option2] = reqHandler(data);
         switch(command) {
             case 'mouse_position':
@@ -41,6 +43,11 @@ wss.on('connection', ws => {
 
             case 'draw_circle':
                 drawCircle(option);
+                break;
+
+            case 'prnt_scrn':
+                let img = await getScreen();
+                ws.send(`prnt_scrn ${img}`);
                 break;
         }
     });
