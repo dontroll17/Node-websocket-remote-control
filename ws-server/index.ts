@@ -6,8 +6,8 @@ import { getScreen } from './src/screen';
 
 const wss = new WebSocketServer({ port: 8080 });
 
-wss.on('connection', ws => {
-    console.log('Got connect');
+wss.on('connection', (ws, req) => {
+    console.log('Got connect ', req.socket.remoteAddress);
     ws.on('message', async data => {
         let [command, option, option2] = reqHandler(data);
         console.log(`received command: ${command}`);
