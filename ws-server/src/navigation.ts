@@ -1,6 +1,11 @@
 import robot from 'robotjs';
 
-export const getPosition = () => {
+type Position = {
+    x: number,
+    y: number
+}
+
+export const getPosition = (): Position => {
     let position = robot.getMousePos();
     return position;
 }

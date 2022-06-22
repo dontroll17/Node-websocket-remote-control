@@ -1,7 +1,7 @@
 import robot from 'robotjs';
 import Jimp from 'jimp';
 
-export const getScreen = async () => {
+export const getScreen = async (): Promise<string> => {
     let {x, y} = robot.getMousePos();
     let img = robot.screen.capture(x - 100, y - 100, 200, 200).image;
     const pic = new Jimp({data: img, width: 200, height: 200})
