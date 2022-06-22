@@ -55,3 +55,9 @@ wss.on('connection', ws => {
 });
 
 console.log('ws://localhost:8080');
+
+process.on('SIGINT', () => {
+    console.log('websocket closed')
+    wss.close();
+    process.exit();
+})
