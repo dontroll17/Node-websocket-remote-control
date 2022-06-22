@@ -30,15 +30,14 @@ export const drawCircle = (radius: string) => {
     const rad = Number(radius);
     const {x, y} = robot.getMousePos();
 
-    robot.moveMouse(x + rad, y);
     robot.mouseToggle('down');
     for(let i = 0; i <= Math.PI * 2; i += 0.01) {
-        const x1 = x + (rad * Math.cos(i));
+        const x1 = (x - rad) + (rad * Math.cos(i));
         const y1 = y + (rad * Math.sin(i));
         
         robot.moveMouse(x1, y1);
     }
     robot.mouseToggle('up');
-    robot.moveMouse(x, y);
+
     console.log('draw circle');
 }
